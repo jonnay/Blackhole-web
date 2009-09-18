@@ -1,0 +1,84 @@
+#+FILETAGS: :personal:blackhole:code:
+* Mission 
+   Provide a series of small components that all work together so that a developer can use these components to create a large-scale web
+   application.  The tools should be built and used in the same spirit as scheme itself (loosely functional), and have minimal
+   dependencies.
+
+   More like an organism, less like a pyramid.
+
+* Installation
+  1. Make a symlink from the Blackhole-web directory to your ~~/lib/modules directory called web.
+	 Assuming you have your Blackhole-web inside of /usr/local/Gambit-C:
+#+BEGIN_SRC bash
+	 ln -s /usr/local/Gambit-C/Blackhole-web /usr/local/Gambit-C/current/lib/modules/web 
+#+END_SRC bash
+  2. Enjoy!
+* Pieces
+** Parsing
+*** PROJECT Blackhole SSAX-SXML 																								   :PROJECT:
+**** PROJECT Update any Missing SRFI's 
+***** TODO set up any dependencies with (import) at the top of each file
+**** TODO Find and list here any import and load statements																			  :NEXT:
+**** TODO Verify there is no namespaing going on																					  :NEXT:
+**** TODO Setup export symbols (look at the main example file for an idea of symbols to export)
+     :EMAIL:
+    (export)
+    Specifies what symbols of the module to export. If a module does not contain an (export)
+    declaration, all of its symbols are exported.
+    (export) takes a list of arguments. Each argument should either be
+    – a symbol that should be exported, or
+    – a list, starting by rename: , and continuing by an a-list of symbols that should be renamed,
+    and the names they should be renamed to.
+    – a list, starting by re-export: , that contains a list of the modules whose exports this module
+    should proxy, in the same notation as used in (import).
+    A module does not need to be imported to be re-exported.
+    Using (import)'s tools, you can chose to re-export only particular names, or rename
+    symbols on the re-export.
+    Example module (a.scm):
+    (import (std srfi/13))
+    (export
+    output
+    a-struct-a
+    a
+    (rename: (more-output more-output-renamed)
+    (a-struct-b a-struct-b-renamed))
+    (re-export: (std srfi/13)))
+    (define-type a-struct a b c)
+    (define a (make-a-struct 1 2 3))
+    (define (output) (display "Output.\n"))
+    (define (more-output) (display "More output.\n"))
+    Example use of module:
+    > (import a)
+    > a
+     #<a-struct #2 a: 1 b: 2 c: 3>
+    > (a-struct-a a)
+    1
+    > (a-struct-b-renamed a)
+    2
+    > (output)
+    Output.
+    > (more-output-renamed)
+    More output.
+    > (string-upcase "Abc") ; (From SRFI 13)
+    "ABC"
+    > (make-a-struct 4 5 6)
+    *** ERROR IN (console)@16.2 -- Unbound variable: ~#make-a-struct
+    1> [ctrl+d]
+    > (a-struct-c a)
+    *** ERROR IN (console)@19.2 -- Unbound variable: ~#a-struct-c
+    Black Hole – Core 8
+    1> [ctrl+d]
+    > (more-output)
+    *** ERROR IN (console)@13.2 -- Unbound variable: ~#more-output
+    1>
+:END:
+**** TODO Make sure readme in SSAX-SXML dir has proper attributions 
+*** PROJECT LALR Parser 
+*** PROJECT JSON Parser
+** Webservice Consumption
+** Webservice Generation 
+** Cookie Handling (?)
+** 
+* Settings 
+** Dictionary
+LocalWords: webservice JSON symlink Blackhole 
