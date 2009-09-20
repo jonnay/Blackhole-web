@@ -1,7 +1,7 @@
 
-(include "../sxml-tools/sxml-tools.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../sxml-tools/sxml-tools.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ;; W3C compliant extensions to SXPathlib
 ; $Id: sxpath-ext.scm,v 1.911 2002/12/06 22:10:53 kl Exp kl $:

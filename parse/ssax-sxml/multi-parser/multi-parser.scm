@@ -1,10 +1,10 @@
 
-(include "../multi-parser/id/srfi-12.sch")
-(include "../multi-parser/id/http.sch")
-(include "../libs/input-parse.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
-(include "../ssax/SSAX-code.sch")
+(import ../multi-parser/id/srfi-12.sch)
+(import ../multi-parser/id/http.sch)
+(import ../libs/input-parse.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
+(import ../ssax/SSAX-code.sch)
 
 ;; SSAX multi parser
 ;; Provides ID-index creation, SXML parent pointers and XLink grammar parsing

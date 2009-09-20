@@ -5,17 +5,15 @@
 ;  From Oleg Kiselyovs's vland.scm,v 1.0 1998/02/21 
 (define-macro (and-let* claws . body)
   (let* ((new-vars '()) (result (cons 'and '())) (growth-point result))
+	(define (andjoin! clause)
+      (let ((prev-point growth-point) (clause-cell (cons clause '())))
+        (set-cdr! growth-point clause-cell)
+        (set! growth-point clause-cell)))
 			; We need a way to report a syntax error
 			; the following is how Gambit compiler does it...
     (##define-macro (ct-error-syntax msg . args)
       `((lambda x #t) '##signal.syntax-error #t ,msg ,@args))
       ;`(##signal '##signal.syntax-error #t ,msg ,@args))
-
-    (define (andjoin! clause)
-      (let ((prev-point growth-point) (clause-cell (cons clause '())))
-        (set-cdr! growth-point clause-cell)
-        (set! growth-point clause-cell)))
-
     (if (not (list? claws))
       (ct-error-syntax "bindings must be a list " bindings))
     (for-each 

@@ -1,7 +1,7 @@
 
-(include "../../libs/gambit/common.sch")
-(include "../../libs/gambit/myenv.sch")
-(include "../../libs/input-parse.sch")
+(import ../../libs/gambit/common.sch)
+(import ../../libs/gambit/myenv.sch)
+(import ../../libs/input-parse.sch)
 
 ;	Handling of MIME Entities and their parts
 ;

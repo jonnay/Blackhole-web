@@ -1,5 +1,5 @@
 
-(include "../../sxml-tools/tests/xtest-harness.sch")
+(import ../../sxml-tools/tests/xtest-harness.sch)
 
 ;; Validation tests for "sxpath-ext.scm"
 ;

@@ -1,5 +1,5 @@
 
-(include "../../libs/gambit/common.sch")
+(import ../../libs/gambit/common.sch)
 
 ;(define command-line argv)
 (define system ##shell-command)

@@ -1,9 +1,9 @@
 
-(include "../../libs/gambit/common.sch")
-(include "../../libs/gambit/myenv.sch")
-(include "../../multi-parser/id/srfi-12.sch")
-(include "../../libs/input-parse.sch")
-(include "../../multi-parser/id/http.sch")
+(import ../../libs/gambit/common.sch)
+(import ../../libs/gambit/myenv.sch)
+(import ../../multi-parser/id/srfi-12.sch)
+(import ../../libs/input-parse.sch)
+(import ../../multi-parser/id/http.sch)
 
 ; Top-level cond-expand expanded automatically
 (define (open-tcp-connection host port-number)

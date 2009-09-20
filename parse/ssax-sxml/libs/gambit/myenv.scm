@@ -1,5 +1,5 @@
 
-(include "../../libs/gambit/myenv.sch")
+(import ../../libs/gambit/myenv.sch)
 
 
 (define (assure exp error-msg)

@@ -1,5 +1,5 @@
 
-(include "../libs/gambit/myenv.sch")
+(import ../libs/gambit/myenv.sch)
 
 ;		XML/HTML processing in Scheme
 ;		SXML expression tree transformers

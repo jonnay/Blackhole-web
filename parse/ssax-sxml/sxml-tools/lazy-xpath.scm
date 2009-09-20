@@ -1,13 +1,13 @@
 
-(include "../sxml-tools/sxml-tools.sch")
-(include "../html-prag/htmlprag.sch")
-(include "../multi-parser/id/srfi-12.sch")
-(include "../multi-parser/id/http.sch")
-(include "../libs/input-parse.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
-(include "../ssax/SSAX-code.sch")
-(include "../sxml-tools/lazy-xpath.sch")
+(import ../sxml-tools/sxml-tools.sch)
+(import ../html-prag/htmlprag.sch)
+(import ../multi-parser/id/srfi-12.sch)
+(import ../multi-parser/id/http.sch)
+(import ../libs/input-parse.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
+(import ../ssax/SSAX-code.sch)
+(import ../sxml-tools/lazy-xpath.sch)
 
 ;; This module implements lazy SXPath evaluation over lazy SXML documents
 ;
@@ -41,24 +41,30 @@
 ; Predicate for detecting a promise
 ; There is no such a predicate in R5RS, so different Scheme implementations
 ; use different names for this functionality
-(define lazy:promise?
-  (cond-expand
-   (plt promise?)
-   (bigloo
-    procedure?   ; ATTENTION: returns #t in more general situations
-    )
-   (chicken
-    ; Thanks to Zbigniew Szadkowski <zbigniewsz@gmail.com>
-    ; for the insight of this function
-    (lambda (p) ((chk:sys-structure?) p 'promise))
-    )
-   (gambit
-    (_gid promise?)
-    )
-   (else
-    (lambda (obj) #f)   ; ATTENTION: just makes the approach applicable for
-                        ; conventional SXML documents
-   )))
+;; (define lazy:promise?
+;;   (cond-expand
+;;    (plt promise?)
+;;    (bigloo
+;;     procedure?   ; ATTENTION: returns #t in more general situations
+;;     )
+;;    (chicken
+;;     ; Thanks to Zbigniew Szadkowski <zbigniewsz@gmail.com>
+;;     ; for the insight of this function
+;;     (lambda (p) ((chk:sys-structure?) p 'promise))
+;;     )
+;;    (gambit
+;;     (_gid promise?)
+;;     )
+;;    (else
+;;     (lambda (obj) #f)   ; ATTENTION: just makes the approach applicable for
+;;                         ; conventional SXML documents
+;;    )))
+(define (lazy:promise? obj)
+  (string=? "#<promise "
+			(substring (with-output-to-string ""
+											  (lambda () (write obj)))
+					   0
+					   10)))
 
 ;-------------------------------------------------
 ; Lazy analogues for common list operations

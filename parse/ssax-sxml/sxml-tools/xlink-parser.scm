@@ -1,9 +1,9 @@
 
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/input-parse.sch")
-(include "../multi-parser/id/http.sch")
-(include "../multi-parser/id/srfi-12.sch")
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/input-parse.sch)
+(import ../multi-parser/id/http.sch)
+(import ../multi-parser/id/srfi-12.sch)
 
 ;; Parser for XML documents that contain XLink elements
 ;
@@ -897,22 +897,8 @@
 ; Returns posiotion of a port
 ; NOTE: Specific for different Scheme implementations
 (define (xlink:get-port-position port)
-  (cond-expand         
-   (bigloo
-    (string-append "position " (number->string (input-port-position port))))
-   (chicken
-    (string-append
-     "line " (number->string (receive (row col) (port-position port) row))))
-   (gambit
-    ; DL: was
-    ;(string-append "line " (number->string (port-input-line-count port)))
-    (string-append "position "
-                   (number->string (input-port-byte-position port))))
-   (guile
-    (string-append "line " (number->string (port-line port))))
-   (plt
-    (string-append "position " (number->string (file-position port))))
-   (else "unknown")))
+  (string-append "position "
+				   (number->string (input-port-byte-position port))))
 
 ; This function displays an error message. #t is returned
 ;  position - position within a file

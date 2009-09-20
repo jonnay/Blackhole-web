@@ -1,7 +1,7 @@
 
-(include "../sxml-tools/sxml-tools.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../sxml-tools/sxml-tools.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ;; XPath/XPointer grammar parser.
 ;

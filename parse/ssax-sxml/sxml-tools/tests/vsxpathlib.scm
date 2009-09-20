@@ -1,5 +1,5 @@
 
-(include "../../sxml-tools/tests/vsxpathlib.sch")
+(import ../../sxml-tools/tests/vsxpathlib.sch)
 
 ;; Validation tests for "sxpathlib.scm"
 ;

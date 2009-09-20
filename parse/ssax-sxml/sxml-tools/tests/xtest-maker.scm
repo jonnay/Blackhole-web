@@ -1,5 +1,5 @@
 
-(include "../../sxml-tools/tests/xtest-maker.sch")
+(import ../../sxml-tools/tests/xtest-maker.sch)
 
 
 ; Defines a test suite 

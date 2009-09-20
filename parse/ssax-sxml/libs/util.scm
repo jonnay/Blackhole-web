@@ -1,6 +1,6 @@
 
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
 
 ; Top-level cond-expand expanded automatically
 (define (any? <pred?> coll)

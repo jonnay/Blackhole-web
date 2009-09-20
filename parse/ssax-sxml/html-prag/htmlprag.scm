@@ -1,6 +1,6 @@
 
-(include "../libs/gambit/myenv.sch")
-(include "../html-prag/htmlprag.sch")
+(import ../libs/gambit/myenv.sch)
+(import ../html-prag/htmlprag.sch)
 
 
 ;;; @section Introduction

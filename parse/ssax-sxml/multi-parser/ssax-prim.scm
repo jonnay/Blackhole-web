@@ -1,8 +1,8 @@
 
-(include "../ssax/SSAX-code.sch")
-(include "../libs/input-parse.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../ssax/SSAX-code.sch)
+(import ../libs/input-parse.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ;=========================================================================
 ; This is a multi parser constructor function

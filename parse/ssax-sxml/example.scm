@@ -1,5 +1,16 @@
 
-(include "example.sch")
+(import ssax/lazy-ssax)
+(import sxml-tools/xpath-ast)
+(import sxml-tools/xpath-parser)
+(import sxml-tools/lazy-xpath)
+(import sxml-tools/xlink-parser)
+(import multi-parser/multi-parser)
+(import multi-parser/id/id)
+(import sxml-tools/xlink)
+;(include "ssax/ssax-code.scm")
+;(include "ssax/sxml-tree-trans.scm")
+;(include "sxml-tools/xlink.scm")
+(import example.sch)
 
 
 ;-------------------------------------------------

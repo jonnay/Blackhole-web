@@ -1,7 +1,7 @@
 
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../sxml-tools/sxml-tools.sch")
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../sxml-tools/sxml-tools.sch)
 
 ;;                            S X M L   T o o l s               
 ; $Revision: 3.14 $ from $Date: 2003/12/23 05:39:31 $:

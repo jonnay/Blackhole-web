@@ -1,6 +1,6 @@
 
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ;;			XML processing in Scheme
 ;		     SXPath -- SXML Query Language

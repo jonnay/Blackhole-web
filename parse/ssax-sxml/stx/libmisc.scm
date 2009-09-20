@@ -1,6 +1,6 @@
 
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ;; Portable Library of Miscellaneous Functions
 ;; $Id: libmisc.scm,v 1.7 2002/10/08 15:47:21 kl Exp kl $ 

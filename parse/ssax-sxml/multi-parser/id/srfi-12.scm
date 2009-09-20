@@ -1,6 +1,6 @@
 
-(include "../../libs/gambit/myenv.sch")
-(include "../../multi-parser/id/srfi-12.sch")
+(import ../../libs/gambit/myenv.sch)
+(import ../../multi-parser/id/srfi-12.sch)
 
 
 (define (exc:signal obj) (raise (list obj)))

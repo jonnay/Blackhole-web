@@ -1,5 +1,5 @@
 
-(include "../../libs/gambit/myenv.sch")
+(import ../../libs/gambit/myenv.sch)
 
 ; This code provides informative error messages
 ;   for SSAX (S)XML parser.

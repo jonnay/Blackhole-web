@@ -1,12 +1,12 @@
 
-(include "../libs/input-parse.sch")
-(include "../multi-parser/id/http.sch")
-(include "../multi-parser/id/srfi-12.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
-(include "../sxml-tools/sxml-tools.sch")
-(include "../ssax/SSAX-code.sch")
-(include "../stx/stx-engine.sch")
+(import ../libs/input-parse.sch)
+(import ../multi-parser/id/http.sch)
+(import ../multi-parser/id/srfi-12.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
+(import ../sxml-tools/sxml-tools.sch)
+(import ../ssax/SSAX-code.sch)
+(import ../stx/stx-engine.sch)
 
 ;; $Id: stx-engine.scm,v 1.9403 2002/12/25 19:33:48 kl Exp kl $
 

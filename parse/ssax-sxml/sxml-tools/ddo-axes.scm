@@ -1,12 +1,12 @@
 
-(include "../sxml-tools/sxml-tools.sch")
-(include "../html-prag/htmlprag.sch")
-(include "../multi-parser/id/srfi-12.sch")
-(include "../multi-parser/id/http.sch")
-(include "../libs/input-parse.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
-(include "../ssax/SSAX-code.sch")
+(import ../sxml-tools/sxml-tools.sch)
+(import ../html-prag/htmlprag.sch)
+(import ../multi-parser/id/srfi-12.sch)
+(import ../multi-parser/id/http.sch)
+(import ../libs/input-parse.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
+(import ../ssax/SSAX-code.sch)
 
 ;; The implementation of SXPath axes with support for distinct document order
 ;

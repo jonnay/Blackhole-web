@@ -1,12 +1,12 @@
 
-(include "../ssax/SSAX-code.sch")
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/input-parse.sch")
-(include "../multi-parser/id/http.sch")
-(include "../multi-parser/id/srfi-12.sch")
-(include "../html-prag/htmlprag.sch")
-(include "../sxml-tools/sxml-tools.sch")
+(import ../ssax/SSAX-code.sch)
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/input-parse.sch)
+(import ../multi-parser/id/http.sch)
+(import ../multi-parser/id/srfi-12.sch)
+(import ../html-prag/htmlprag.sch)
+(import ../sxml-tools/sxml-tools.sch)
 
 ;; Context-based XPath implementation
 ;

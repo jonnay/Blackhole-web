@@ -1,7 +1,7 @@
 
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../sxml-tools/sxml-tools.sch")
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../sxml-tools/sxml-tools.sch)
 
 ;; $Id: sxpath.scm,v 1.5 2005/09/07 09:27:34 lizorkin Exp $
 ;; Highghest level SXPath 

@@ -6,6 +6,7 @@
 
    More like an organism, less like a pyramid.
 
+
 * Installation
   1. Make a symlink from the Blackhole-web directory to your ~~/lib/modules directory called web.
 	 Assuming you have your Blackhole-web inside of /usr/local/Gambit-C:
@@ -13,13 +14,411 @@
 	 ln -s /usr/local/Gambit-C/Blackhole-web /usr/local/Gambit-C/current/lib/modules/web 
 #+END_SRC bash
   2. Enjoy!
-* Pieces
+
+
+* Status 
+  Right now the Blackhole web framework is in a highly experimental phase.  In fact, there is only one package available, and it is not
+  ready yet.  Keep checking back here, to see what is ready and what is not. 
+
+** Package list 
+   - ssax-sxml :: converting
+
+
+* Todo
+** FINISHED Git Setup
+   CLOSED: [2009-09-20 Sun 13:00]
+*** DONE Finish importing into github
+	CLOSED: [2009-09-20 Sun 11:19]
+	git remote add origin git@github.com:jonnay/Blackhole-web.git
+	git push origin master
 ** Parsing
 *** PROJECT Blackhole SSAX-SXML 																								   :PROJECT:
+**** Loading the example file:
+#+BEGIN_SRC scheme
+(load "~~/lib/modules/build")
+(import /usr/local/Gambit-C/Blackhole-web/parse/ssax-sxml/example)
+#+END_SRC
 **** PROJECT Update any Missing SRFI's 
 ***** TODO set up any dependencies with (import) at the top of each file
-**** TODO Find and list here any import and load statements																			  :NEXT:
-**** TODO Verify there is no namespaing going on																					  :NEXT:
+**** DONE Verify there is no namespaing going on
+	 CLOSED: [2009-09-18 Fri 14:43]
+**** PROJECT Change all includes into imports																					   :PROJECT:
+***** DONE Find and list here any import and load statements
+	  CLOSED: [2009-09-18 Fri 14:50]
+      - [-] [[file:./parse/ssax-sxml/example.scm::2]]:(include "example.sch")
+      - [-] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [-] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::15]]:;;; recover structure.  HtmlPrag also includes procedures for encoding SHTML in
+      - [ ] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::650]]:            ;; TODO: Find if SXML includes declaration forms, and if so, use
+      - [ ] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::1210]]:;;; emitted.  The @var{shtml} should normally include a newline at the end of
+      - [ ] [[file:./parse/ssax-sxml/libs/gambit/common.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/gambit/myenv.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/gambit/parse-error.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/input-parse.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/input-parse.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/input-parse.scm::4]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/input-parse.scm::52]]:;	may include EOF, which is to be coded as a symbol *eof*
+      - [ ] [[file:./parse/ssax-sxml/libs/input-parse.scm::105]]:;	The list of break characters may include EOF, which is to be coded as
+      - [ ] [[file:./parse/ssax-sxml/libs/look-for-str.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/look-for-str.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/srfi-13-local.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/srfi-13-local.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/util.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/libs/util.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/Makefile::6]]:includedir=$(prefix)/include
+      - [ ] [[file:./parse/ssax-sxml/Makefile::9]]:INCLUDES=-I$(includedir) -L$(libdir)
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::4]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::5]]:(include "../../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::6]]:(include "../../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::4]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::5:(include "../../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::6]]:(include "../../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::4]]:(include "../../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::5]]:(include "../../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::6]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::4]]:(include "../../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/srfi-12.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/id/srfi-12.scm::3]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::2]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::3]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::4]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::6]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::7]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::3]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::5]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::46]]:; is included in character data is not affected.
+      - [ ] [[file:./parse/ssax-sxml/ssax/char-encoding.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/char-encoding.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::2]]:(include "../sxml-tools/lazy-xpath.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::3]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::4]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::6]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::7]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::8]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::9]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::10]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::4]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::5]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/ssax/SXML-tree-trans.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/libmisc.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/libmisc.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::2]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::3]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::6]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::7]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::8]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/stx/stx-engine.scm::9]]:(include "../stx/stx-engine.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::6]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::8]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::5]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::6]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::7]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::8]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::9]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::672]]:; var-bindings - include variables supplied by user and the ones formed by
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::688]]:;  var-bindings - include variables supplied by user and the ones formed by
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::3]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::5]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::6]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::8]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::10]]:(include "../sxml-tools/lazy-xpath.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::6]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::8]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/serializer.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/serializer.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::18]]:; included, and aux-list is always the third.
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::250]]:; Thus it includes PI, COMMENT and  ENTITY nodes as well as TEXT and ELEMENT nodes
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::4]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpathlib.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpathlib.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/sxpathlib.scm::35]]:; database relative to a context node. A step may include expressions
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::2]]:(include "../../sxml-tools/tests/vsxpathlib.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::3]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::4]]:(include "../../sxml-tools/tests/vcontext.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vddo.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vmodif.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vsxpath-ext.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vsxpathlib.scm::2]]:(include "../../sxml-tools/tests/vsxpathlib.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/vtxpath.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/xtest-harness.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/tests/xtest-maker.scm::2]]:(include "../../sxml-tools/tests/xtest-maker.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::4]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::6]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::6]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::8]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::314]]:; Options include the following:
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::677]]:; Options include the following:
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::739]]:; Options include the following:
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::2]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::3]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::5]]:(include "../libs/input-parse.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::6]]:(include "../multi-parser/id/http.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::7]]:(include "../multi-parser/id/srfi-12.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::8]]:(include "../html-prag/htmlprag.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::9]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [ ] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::4]]:(include "../libs/gambit/common.sch")
+      - [ ] [[file:./parse/ssax-sxml/test-sxml.scm::2]]:(include "sxml-tools/tests/xtest-harness.sch")
+      - [ ] [[file:./parse/ssax-sxml/test-sxml.scm::3]]:(include "sxml-tools/tests/vcontext.sch")
+      - [ ] [[file:./parse/ssax-sxml/test-sxml.scm::4]]:(include "sxml-tools/tests/vsxpathlib.sch")
+      - [ ] [[file:./parse/ssax-sxml/test-sxml.scm::5]]:(include "sxml-tools/tests/xtest-maker.sch")
+***** DONE rename all sch to sch.scm
+	  CLOSED: [2009-09-20 Sun 12:38]
+git mv ./libs/gambit/common.sch ./libs/gambit/common.sch.scm
+git mv ./libs/gambit/myenv.sch ./libs/gambit/myenv.sch.scm
+git mv ./libs/input-parse.sch ./libs/input-parse.sch.scm
+git mv ./multi-parser/id/http.sch ./multi-parser/id/http.sch.scm
+git mv ./multi-parser/id/srfi-12.sch ./multi-parser/id/srfi-12.sch.scm
+git mv ./ssax/SSAX-code.sch ./ssax/SSAX-code.sch.scm
+git mv ./stx/stx-engine.sch ./stx/stx-engine.sch.scm
+git mv ./sxml-tools/lazy-xpath.sch ./sxml-tools/lazy-xpath.sch.scm
+git mv ./sxml-tools/sxml-tools.sch ./sxml-tools/sxml-tools.sch.scm
+git mv ./sxml-tools/tests/vcontext.sch ./sxml-tools/tests/vcontext.sch.scm
+git mv ./sxml-tools/tests/vsxpathlib.sch ./sxml-tools/tests/vsxpathlib.sch.scm
+git mv ./sxml-tools/tests/xtest-harness.sch ./sxml-tools/tests/xtest-harness.sch.scm
+git mv ./sxml-tools/tests/xtest-maker.sch ./sxml-tools/tests/xtest-maker.sch.scm
+***** TODO make example go
+***** TODO Write macro to 
+	  1. mark current check item (-)  
+	  2. open a file, 
+	  3. chagne import properly according to black hole
+	  4. save
+	  5. close file (and buffer)
+	  6. mark current item (X) 
+	  7. move down
+***** TODO Import sch files 
+      - [X] [[file:./parse/ssax-sxml/example.scm::2]]:(include "example.sch")
+      - [X] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/gambit/common.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/gambit/myenv.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/gambit/parse-error.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/input-parse.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/input-parse.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/input-parse.scm::4]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/look-for-str.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/look-for-str.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/srfi-13-local.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/srfi-13-local.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/util.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/libs/util.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::4]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::5]]:(include "../../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/access-remote.scm::6]]:(include "../../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::4]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [X] file:./parse/ssax-sxml/multi-parser/id/http.scm::5:(include ../../libs/input-parse.sch)
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/http.scm::6]]:(include "../../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::4]]:(include "../../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::5]]:(include "../../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/id.scm::6]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::2]]:(include "../../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::3]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/mime.scm::4]]:(include "../../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/srfi-12.scm::2]]:(include "../../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/id/srfi-12.scm::3]]:(include "../../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::2]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::3]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::4]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::6]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/multi-parser.scm::7]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::3]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/multi-parser/ssax-prim.scm::5]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/char-encoding.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/char-encoding.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::2]]:(include "../sxml-tools/lazy-xpath.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::3]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::4]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::6]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::7]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::8]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::9]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/lazy-ssax.scm::10]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::4]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/SSAX-code.scm::5]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/ssax/SXML-tree-trans.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/libmisc.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/libmisc.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::2]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::3]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::5]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::6]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::7]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::8]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/stx/stx-engine.scm::9]]:(include "../stx/stx-engine.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::6]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::8]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-axes.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::5]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::6]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::7]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::8]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/ddo-txpath.scm::9]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::3]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/guides.scm::5]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::6]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::8]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/lazy-xpath.scm::10]]:(include "../sxml-tools/lazy-xpath.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::6]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::8]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/modif.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/serializer.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/serializer.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxml-tools.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath-ext.scm::4]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpath.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpathlib.scm::2]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/sxpathlib.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::2]]:(include "../../sxml-tools/tests/vsxpathlib.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::3]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vcontext.scm::4]]:(include "../../sxml-tools/tests/vcontext.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vddo.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vmodif.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vsxpath-ext.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vsxpathlib.scm::2]]:(include "../../sxml-tools/tests/vsxpathlib.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/vtxpath.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/xtest-harness.scm::2]]:(include "../../sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/tests/xtest-maker.scm::2]]:(include "../../sxml-tools/tests/xtest-maker.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/txpath.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::4]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink-parser.scm::6]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::3]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::4]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::5]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::6]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::7]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::8]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xlink.scm::9]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::2]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-ast.scm::4]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::2]]:(include "../ssax/SSAX-code.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::3]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::4]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::5]]:(include "../libs/input-parse.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::6]]:(include "../multi-parser/id/http.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::7]]:(include "../multi-parser/id/srfi-12.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::8]]:(include "../html-prag/htmlprag.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-context.scm::9]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::2]]:(include "../sxml-tools/sxml-tools.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::3]]:(include "../libs/gambit/myenv.sch")
+      - [X] [[file:./parse/ssax-sxml/sxml-tools/xpath-parser.scm::4]]:(include "../libs/gambit/common.sch")
+      - [X] [[file:./parse/ssax-sxml/test-sxml.scm::2]]:(include "sxml-tools/tests/xtest-harness.sch")
+      - [X] [[file:./parse/ssax-sxml/test-sxml.scm::3]]:(include "sxml-tools/tests/vcontext.sch")
+      - [X] [[file:./parse/ssax-sxml/test-sxml.scm::4]]:(include "sxml-tools/tests/vsxpathlib.sch")
+      - [X] [[file:./parse/ssax-sxml/test-sxml.scm::5]]:(include "sxml-tools/tests/xtest-maker.sch")
+***** TODO Re-run all tests   (include "test-sxml.scm")
+**** DONE fix [[file:parse/ssax-sxml/sxml-tools/lazy-xpath.scm::define%20lazy%20promise][file:parse/ssax-sxml/sxml-tools/lazy-xpath.scm::define lazy promise]]
+	 CLOSED: [2009-09-20 Sun 13:28]
 **** TODO Setup export symbols (look at the main example file for an idea of symbols to export)
      :EMAIL:
     (export)
@@ -76,9 +475,13 @@
 *** PROJECT LALR Parser 
 *** PROJECT JSON Parser
 ** Webservice Consumption
+
+*** PROJECT Write a Delcairative DSL to define a webservice
+*** PROJECT Twitter API
 ** Webservice Generation 
-** Cookie Handling (?)
-** 
+** Debugging
+*** PROJECT Serialize Contiunations on Webserver Error
+*** PROJECT Write TCP-IP REPL to webserver
 * Settings 
 ** Dictionary
 LocalWords: webservice JSON symlink Blackhole 

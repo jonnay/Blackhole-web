@@ -1,8 +1,8 @@
 
-(include "../libs/gambit/common.sch")
-(include "../libs/gambit/myenv.sch")
-(include "../libs/input-parse.sch")
-(include "../ssax/SSAX-code.sch")
+(import ../libs/gambit/common.sch)
+(import ../libs/gambit/myenv.sch)
+(import ../libs/input-parse.sch)
+(import ../ssax/SSAX-code.sch)
 
 (define (make-xml-token kind head) (cons kind head))
 (define xml-token? pair?)

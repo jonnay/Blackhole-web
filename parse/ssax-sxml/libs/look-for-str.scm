@@ -1,6 +1,6 @@
 
-(include "../libs/gambit/myenv.sch")
-(include "../libs/gambit/common.sch")
+(import ../libs/gambit/myenv.sch)
+(import ../libs/gambit/common.sch)
 
 ; -- Function: find-string-from-port? STR IN-PORT MAX-NO-CHARS
 ;    Looks for a string STR within the first MAX-NO-CHARS chars of the

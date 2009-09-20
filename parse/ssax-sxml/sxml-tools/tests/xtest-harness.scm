@@ -1,5 +1,5 @@
 
-(include "../../sxml-tools/tests/xtest-harness.sch")
+(import ../../sxml-tools/tests/xtest-harness.sch)
 
 ;; $Id: xtest-harness.scm,v 1.2 2005/01/28 09:16:57 lizorkin Exp $
 ;

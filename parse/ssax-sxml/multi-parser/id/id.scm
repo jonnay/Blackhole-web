@@ -1,9 +1,9 @@
 
-(include "../../libs/gambit/common.sch")
-(include "../../libs/gambit/myenv.sch")
-(include "../../libs/input-parse.sch")
-(include "../../multi-parser/id/http.sch")
-(include "../../multi-parser/id/srfi-12.sch")
+(import ../../libs/gambit/common.sch)
+(import ../../libs/gambit/myenv.sch)
+(import ../../libs/input-parse.sch)
+(import ../../multi-parser/id/http.sch)
+(import ../../multi-parser/id/srfi-12.sch)
 
 ;; Creation and manipulation of the ID-index
 ;; Provides the DTD parser for extracting ID attribute declarations
