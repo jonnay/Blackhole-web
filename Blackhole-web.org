@@ -241,8 +241,8 @@ git mv ./sxml-tools/tests/vcontext.sch ./sxml-tools/tests/vcontext.sch.scm
 git mv ./sxml-tools/tests/vsxpathlib.sch ./sxml-tools/tests/vsxpathlib.sch.scm
 git mv ./sxml-tools/tests/xtest-harness.sch ./sxml-tools/tests/xtest-harness.sch.scm
 git mv ./sxml-tools/tests/xtest-maker.sch ./sxml-tools/tests/xtest-maker.sch.scm
-***** TODO make example go
-***** TODO Write macro to 
+***** DONE Write macro to
+	  CLOSED: [2009-09-20 Sun 14:31]
 	  1. mark current check item (-)  
 	  2. open a file, 
 	  3. chagne import properly according to black hole
@@ -250,7 +250,8 @@ git mv ./sxml-tools/tests/xtest-maker.sch ./sxml-tools/tests/xtest-maker.sch.scm
 	  5. close file (and buffer)
 	  6. mark current item (X) 
 	  7. move down
-***** TODO Import sch files 
+***** DONE Import sch files
+	  CLOSED: [2009-09-20 Sun 14:31]
       - [X] [[file:./parse/ssax-sxml/example.scm::2]]:(include "example.sch")
       - [X] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::2]]:(include "../libs/gambit/myenv.sch")
       - [X] [[file:./parse/ssax-sxml/html-prag/htmlprag.scm::3]]:(include "../html-prag/htmlprag.sch")
@@ -416,6 +417,7 @@ git mv ./sxml-tools/tests/xtest-maker.sch ./sxml-tools/tests/xtest-maker.sch.scm
       - [X] [[file:./parse/ssax-sxml/test-sxml.scm::3]]:(include "sxml-tools/tests/vcontext.sch")
       - [X] [[file:./parse/ssax-sxml/test-sxml.scm::4]]:(include "sxml-tools/tests/vsxpathlib.sch")
       - [X] [[file:./parse/ssax-sxml/test-sxml.scm::5]]:(include "sxml-tools/tests/xtest-maker.sch")
+***** TODO make example go
 ***** TODO Re-run all tests   (include "test-sxml.scm")
 **** DONE fix [[file:parse/ssax-sxml/sxml-tools/lazy-xpath.scm::define%20lazy%20promise][file:parse/ssax-sxml/sxml-tools/lazy-xpath.scm::define lazy promise]]
 	 CLOSED: [2009-09-20 Sun 13:28]
