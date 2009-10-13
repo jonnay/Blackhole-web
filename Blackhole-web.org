@@ -21,8 +21,10 @@
   ready yet.  Keep checking back here, to see what is ready and what is not. 
 
 ** Package list 
-   - ssax-sxml :: converting
-
+   - ssax-sxml :: Converting
+   - mysql :: Converting
+   - docco :: Writing 
+   - service :: Writing 
 
 * Todo
 ** FINISHED Git Setup
@@ -476,6 +478,17 @@ git mv ./sxml-tools/tests/xtest-maker.sch ./sxml-tools/tests/xtest-maker.sch.scm
 **** TODO Make sure readme in SSAX-SXML dir has proper attributions 
 *** PROJECT LALR Parser 
 *** PROJECT JSON Parser
+** SQL 
+*** TODO rename package to sql, instead of mysql.																					  :NEXT:
+*** PROJECT mysql
+** Documentation 
+*** PROJECT .scm to .org
+**** DONE Write a simple reader to read  source file, and then display simpel attributes about it
+	 CLOSED: [2009-09-24 Thu 10:05]
+**** TODO Make the structure a little more functional, so listeners can work with a different documentor, to install their own sub listeners. :NEXT:
+**** TODO Pull out definition type (function, scalar, type, macro, etc.)
+**** TODO Put into an org file
+**** TODO Handle customized search 
 ** Webservice Consumption
 
 *** PROJECT Write a Delcairative DSL to define a webservice
